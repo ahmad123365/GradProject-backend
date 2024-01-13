@@ -32,7 +32,7 @@ router
 
 router
   .route('/')
-  .get(authController.protect, bookController.getAllBooks)
+  .get(bookController.getAllBooks)
   .post(bookController.createBook);
 
 router
