@@ -119,7 +119,7 @@ exports.buyBook = catchAsync(async (req, res, next) => {
   if (!user) { return next(new AppError('No user found with that ID', 404)) }
   if (!book) { return next(new AppError('No book found with that ID', 404)) }
 
-  const indexToRemove = user.booksPurchased.indexOf(req.body.book) 
+  const indexToRemove = user.booksPurchased.map(entry => entry.book).indexOf(req.body.book) 
   if (indexToRemove === -1) {
     return res.status(405).json({
       status: 'fail',
