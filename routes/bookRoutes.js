@@ -13,6 +13,7 @@ router
 router
   .route('/buy')
   .post(bookController.buyBook)
+  .patch(bookController.buyBook)
 
 router
   .route('/addToCart')
