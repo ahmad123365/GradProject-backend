@@ -106,7 +106,8 @@ exports.buyBook = catchAsync(async (req, res, next) => {
     status: 'success',
     data: {
       book: newBook,
-      userBooks: [...user.booksPurchased, {book: book.name, date: new Date()}]
+      userBooks: [...user.booksPurchased, { book: book.name, date: new Date() }],
+      userBalance: (user.balance - book.price)
     },
   })
  })
