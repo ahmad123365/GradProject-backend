@@ -87,7 +87,7 @@ exports.deleteBook = catchAsync(async (req, res, next) => {
 });
 
 exports.buyBook = catchAsync(async (req, res, next) => {
-  console.log(req.body)
+  console.log("----------------------------------------",req)
   const book = await Book.findOne({name:req.body.book});
   const user = await User.findOne({ email: req.body.email });
   if (!user) {return next(new AppError('No user found with that ID', 404));}
